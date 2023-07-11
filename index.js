@@ -3,6 +3,7 @@ const Connection = require("./db/db");
 const routes = require("./routes/route");
 const fileupload = require("express-fileupload");
 const cloudinary = require("./config/cloudinary");
+require("dotenv").config();
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(
 app.use("/", routes);
 
 cloudinary.cloudinaryConnect();
+const PORT = process.env.PORT || 5001;
 
-app.listen(5000, console.log("Server started successfully"));
+app.listen(PORT, console.log("Server started successfully"));
 Connection();
